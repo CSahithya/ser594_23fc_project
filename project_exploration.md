@@ -1,7 +1,7 @@
-#### SERX94: Exploratory Data Munging and Visualization
-#### TODO (title)
-#### TODO (author)
-#### TODO (date)
+#### SER594: Exploratory Data Munging and Visualization
+#### Crime Rate Analysis (title)
+#### Sahithya Cherukuri (author)
+#### 10/16/2023 (date)
 
 ## Basic Questions
 **Dataset Author(s):** TODO
@@ -13,6 +13,16 @@
 **Dataset Field Meanings:** TODO
 
 **Dataset File Hash(es):** TODO
+<!-- >>> with open(".\data_original\statistic_id248063_us-real-per-capita-gdp-2022-by-state.xlsx", "rb") as file:
+...     while True:
+...             data = file.read(8192)
+...             if not data:
+...                     break
+...             md5.update(data)
+...     print(md5.hexdigest())
+...
+1c225e64196f1cadb1ff4eb11d65d844 -->
+
 
 ## Interpretable Records
 ### Record 1
