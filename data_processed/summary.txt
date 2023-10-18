@@ -1,0 +1,36 @@
+For socioeconomic factors
+GDP
+Minimum Value: 35555.54
+Maximum Value: 79434.45
+Median Value: 54263.545
+LITERATE
+Minimum Value: 11.5
+Maximum Value: 29.1
+Median Value: 18.4
+POPULATION
+Minimum Value: 0.58
+Maximum Value: 39.03
+Median Value: 4.55
+UNEMPLOYMENT
+Minimum Value: 2.1
+Maximum Value: 5.4
+Median Value: 3.35
+
+
+For crime data
+GUN_LAW
+Minimum Value: 3.0
+Maximum Value: 86.5
+Median Value: 20.5
+SHOOTINGS
+Minimum Value: 0
+Maximum Value: 26
+Median Value: 1.5
+EXECUTIONS
+Minimum Value: 0
+Maximum Value: 65
+Median Value: 0.0
+MURDERS
+Minimum Value: 0
+Maximum Value: 26
+Median Value: 1.5
