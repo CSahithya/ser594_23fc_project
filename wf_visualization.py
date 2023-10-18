@@ -40,12 +40,12 @@ def correlation_matrix(data, crime_data,filename):
 def scatter_helper(data, crime_data):
     x_labels = ['Population', 'Population', 'Population', 'Literate','Literate', 'GDP']
     y_labels = ['Literate', 'GDP', 'Unemployment', 'GDP', 'Unemployment', 'Unemployment']
-    fig_name= "Project\Git\ser594_23fc_project\\visuals\\SocioEconomicFactors.png" 
+    fig_name= "visuals\\SocioEconomicFactors.png" 
     scatter_plot(data, x_labels, y_labels, fig_name)
 
     x_labels = ['Gun_Law', 'Gun_Law', 'Gun_Law', 'Shootings','Shootings', 'Executions']
     y_labels = ['Shootings', 'Executions', 'Murders', 'Executions', 'Murders', 'Murders']
-    fig_name= "Project\Git\ser594_23fc_project\\visuals\\CrimeDataPlot.png" 
+    fig_name= "visuals\\CrimeDataPlot.png" 
     scatter_plot(crime_data, x_labels, y_labels, fig_name)
 
 
