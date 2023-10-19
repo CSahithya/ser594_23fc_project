@@ -1,9 +1,9 @@
 Socioeconomic Factors Correlation
-                   gdp  literate  population  unemployment
-gdp           1.000000 -0.201356    0.342256      0.205076
-literate     -0.201356  1.000000    0.540273      0.352015
-population    0.342256  0.540273    1.000000      0.307729
-unemployment  0.205076  0.352015    0.307729      1.000000
+                   gdp  illiterate  population  unemployment
+gdp           1.000000   -0.201356    0.342256      0.205076
+illiterate   -0.201356    1.000000    0.540273      0.352015
+population    0.342256    0.540273    1.000000      0.307729
+unemployment  0.205076    0.352015    0.307729      1.000000
 
 Crime data Correlation
              gun_law  shootings  executions   murders

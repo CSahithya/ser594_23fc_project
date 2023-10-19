@@ -1,11 +1,12 @@
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+import json
 
 def stat_summary(data, crime_data, filename):
     data_info = {}
     crime_info = {}
-    data_keys = ['gdp','literate','population','unemployment']
+    data_keys = ['gdp','illiterate','population','unemployment']
     crime_keys = ['gun_law','shootings','executions','murders']
     for x in data_keys:
         data_info[x] = {'Min':data[x].min(), 'Max':data[x].max(), 'Median':data[x].median().round(3)}
@@ -26,7 +27,7 @@ def stat_summary(data, crime_data, filename):
 
 
 def correlation_matrix(data, crime_data,filename):
-    data_correlation_matrix = data[['gdp', 'literate', 'population', 'unemployment']].corr()
+    data_correlation_matrix = data[['gdp', 'illiterate', 'population', 'unemployment']].corr()
     crime_correlation_matrix = crime_data[['gun_law','shootings','executions','murders']].corr()
     with open(filename, 'w') as file:
         file.write("Socioeconomic Factors Correlation\n")
@@ -38,14 +39,14 @@ def correlation_matrix(data, crime_data,filename):
 
 
 def scatter_helper(data, crime_data):
-    x_labels = ['Population', 'Population', 'Population', 'Literate','Literate', 'GDP']
-    y_labels = ['Literate', 'GDP', 'Unemployment', 'GDP', 'Unemployment', 'Unemployment']
-    fig_name= "visuals\\SocioEconomicFactors.png" 
+    x_labels = ['Population', 'Population', 'Population', 'Illiterate','Illiterate', 'GDP']
+    y_labels = ['Illiterate', 'GDP', 'Unemployment', 'GDP', 'Unemployment', 'Unemployment']
+    fig_name= "visuals\\SampleSocioEconomicFactors.png" 
     scatter_plot(data, x_labels, y_labels, fig_name)
 
     x_labels = ['Gun_Law', 'Gun_Law', 'Gun_Law', 'Shootings','Shootings', 'Executions']
     y_labels = ['Shootings', 'Executions', 'Murders', 'Executions', 'Murders', 'Murders']
-    fig_name= "visuals\\CrimeDataPlot.png" 
+    fig_name= "visuals\\SampleCrimeDataPlot.png" 
     scatter_plot(crime_data, x_labels, y_labels, fig_name)
 
 
@@ -66,12 +67,44 @@ def scatter_plot(data, x_labels, y_labels, fig_name):
 
     plt.show()
 
- 
+
+def visualize_five(data, crime_data):
+    data_x_labels = ['Population', 'Population', 'Illiterate']
+    data_y_labels = ['Illiterate',  'Unemployment', 'GDP']
+    crime_x_labels = ['Gun_Law', 'Executions']
+    crime_y_labels = ['Shootings', 'Murders']
+    # Quantitative Data plots
+    for i in range(3):
+        fig, ax = plt.subplots()
+        ax.scatter(data[data_x_labels[i].lower()],data[data_y_labels[i].lower()], alpha=0.5, color='g', marker='o')
+        ax.set_xlabel(data_x_labels[i])
+        ax.set_ylabel(data_y_labels[i])
+        ax.grid(True, linestyle='--', alpha=0.7)
+        scatter_plot = "visuals\\"+data_x_labels[i]+"vs"+data_y_labels[i]+".png"
+        fig.savefig(scatter_plot)
+    
+    for i in range(2):
+        fig, ax = plt.subplots()
+        ax.scatter(crime_data[crime_x_labels[i].lower()],crime_data[crime_y_labels[i].lower()], alpha=0.5, color='g', marker='o')
+        ax.set_xlabel(crime_x_labels[i])
+        ax.set_ylabel(crime_y_labels[i])
+        ax.grid(True, linestyle='--', alpha=0.7)
+        scatter_plot = "visuals\\"+crime_x_labels[i]+"vs"+crime_y_labels[i]+".png"
+        fig.savefig(scatter_plot)
+
+    # Although there is no categorical data, I used number of shooting for this Qualitative data plot
+    fig, ax = plt.subplots() 
+    ax.hist(crime_data['gun_law'], bins = 5, edgecolor='k')
+    ax.set_xlabel('Gun Law Scores')
+    ax.set_ylabel('Frequency')
+    ax.set_title('Histogram of Gun Law Scores')
+    hist = "visuals\\GunLawHistogram.png"
+    fig.savefig(hist)
+
  
 def visualize_correlation(correlation_matrix):
     sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt=".2f")
     plt.show()
-
 
 
 def visualization():
@@ -84,4 +117,5 @@ def visualization():
     stat_summary(data, crime_data, summary_file)
     correlation_matrix(data, crime_data, correlation_file)
     # visualize_correlation(correlation_matrix)
+    visualize_five(data, crime_data)
     scatter_helper(data,crime_data)

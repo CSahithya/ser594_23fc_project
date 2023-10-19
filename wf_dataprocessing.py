@@ -53,7 +53,7 @@ def csv_file(filename):
     return data
 
 
-def combine_param_data(states, gdp, literate, population, unemployment):
+def combine_param_data(states, gdp, illiterate, population, unemployment):
     data = {}
     data['states'] = states
     gdp_data = []
@@ -63,15 +63,15 @@ def combine_param_data(states, gdp, literate, population, unemployment):
     for i in states:
         index = gdp[gdp['state'] == i].index[0]
         gdp_data.append(gdp['value'][index])
-        index = literate[literate['state'] == i].index[0]
-        lit_data.append(literate['value'][index])
+        index = illiterate[illiterate['state'] == i].index[0]
+        lit_data.append(illiterate['value'][index])
         index = population[population['state'] == i].index[0]
         pop_data.append(population['value'][index])
         index = unemployment[unemployment['state'] == i].index[0]
         unemp_data.append(unemployment['value'][index])
     
     data['gdp'] = gdp_data
-    data['literate'] = lit_data
+    data['illiterate'] = lit_data
     data['unemployment'] = unemp_data
     data['population'] = pop_data
     df = pd.DataFrame(data)
@@ -126,11 +126,11 @@ def data_processing():
     data_gdp = statista_file(gdp_filepath, 1)
     data_population = statista_file(population_filepath, 1)
     data_unemployment = statista_file(unemployment_filepath, 1)
-    data_literate = csv_file(literacy_filepath)
+    data_illiterate = csv_file(literacy_filepath)
     
     all_states = [state.name.lower() for state in us.states.STATES]
 
-    data_combined = combine_param_data(all_states, data_gdp, data_literate, data_population, data_unemployment)
+    data_combined = combine_param_data(all_states, data_gdp, data_illiterate, data_population, data_unemployment)
 
     data_combined.to_excel('data_processed\data.xlsx', sheet_name='Sheet1', index=False)
 

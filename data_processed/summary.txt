@@ -3,7 +3,7 @@ GDP
 Minimum Value: 35555.54
 Maximum Value: 79434.45
 Median Value: 54263.545
-LITERATE
+ILLITERATE
 Minimum Value: 11.5
 Maximum Value: 29.1
 Median Value: 18.4
