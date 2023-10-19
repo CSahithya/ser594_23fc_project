@@ -1,16 +1,16 @@
 import pandas as pd
 import numpy as np
-import openpyxl
-import us
+# import openpyxl
+# import us
 
 def statista_file(filename, sheet=1):
-
     sheet_name = 'Data' 
-    workbook = openpyxl.load_workbook(filename, data_only=True)
-    sheet = workbook[sheet_name]
-    data = sheet.values
-    columns = next(data)  
-    df = pd.DataFrame(data, columns=columns)
+    # workbook = openpyxl.load_workbook(filename, data_only=True)
+    # sheet = workbook[sheet_name]
+    # data = sheet.values
+    # columns = next(data)  
+    # df = pd.DataFrame(data, columns=columns)
+    df = pd.read_excel(filename, sheet_name=sheet_name)
     df.dropna(axis=1, how='all', inplace=True)
 
     data_rows = df.notna()
@@ -24,26 +24,26 @@ def statista_file(filename, sheet=1):
     df['state'] = df['state'].str.lower()
     df = df.drop([0,1,2,3])
     df.reset_index(drop=True, inplace=True)
+    # print(df)
     return df
 
 
 def process_file(filename):
     sheet_name = 'Data' 
-    workbook = openpyxl.load_workbook(filename, data_only=True)
-    sheet = workbook[sheet_name]
-    data = sheet.values
-    columns = next(data)  
-    df = pd.DataFrame(data, columns=columns)
+    # workbook = openpyxl.load_workbook(filename, data_only=True)
+    # sheet = workbook[sheet_name]
+    df = pd.read_excel(filename, sheet_name=sheet_name)
     df.dropna(axis=1, how='all', inplace=True)
     data_rows = df.notna()
     df = df[data_rows]
     df = df.drop([0,1,2,3])
     for x in df.columns:
+        df.fillna(0, inplace=True)
         df[x] = df[x].replace('',0)
     df.columns = ['state','2015', '2016','2017','2018','2019','2020','2021','2022','2023*']
     df['state'] = df['state'].str.lower()
     df['value'] = df['2015'] + df['2016'] + df['2017'] + df['2018']+df['2019']+df['2020']+df['2021']+df['2022']+df['2023*']
-    # print(df)
+    print(df)
     return df
 
 def csv_file(filename):
@@ -119,25 +119,36 @@ def combine_crime_data(states, data_execution, data_shootings, data_gun_law, dat
     return df
 
 def data_processing():
-    gdp_filepath = "ser594_23fc_project\data_original\statistic_id248063_us-real-per-capita-gdp-2022-by-state.xlsx"
-    population_filepath = "ser594_23fc_project\data_original\statistic_id183497_population-in-the-states-of-the-us-2022.xlsx"
-    literacy_filepath = r"ser594_23fc_project\data_original\\us.-literacy-rates-by-state-[updated-june-2023].csv"
-    unemployment_filepath = "ser594_23fc_project\data_original\statistic_id223675_us-annual-unemployment-rate-2022-by-state.xlsx"
+    gdp_filepath = "data_original\statistic_id248063_us-real-per-capita-gdp-2022-by-state.xlsx"
+    population_filepath = "data_original\statistic_id183497_population-in-the-states-of-the-us-2022.xlsx"
+    literacy_filepath = r"data_original\\us.-literacy-rates-by-state-[updated-june-2023].csv"
+    unemployment_filepath = "data_original\statistic_id223675_us-annual-unemployment-rate-2022-by-state.xlsx"
     data_gdp = statista_file(gdp_filepath, 1)
     data_population = statista_file(population_filepath, 1)
     data_unemployment = statista_file(unemployment_filepath, 1)
     data_illiterate = csv_file(literacy_filepath)
     
-    all_states = [state.name.lower() for state in us.states.STATES]
+    # all_states = [state.name.lower() for state in us.states.STATES]
+    all_states = [
+    "alabama", "alaska", "arizona", "arkansas", "california",
+    "colorado", "connecticut", "delaware", "florida", "georgia",
+    "hawaii", "idaho", "illinois", "indiana", "iowa", "kansas",
+    "kentucky", "louisiana", "maine", "maryland", "massachusetts",
+    "michigan", "minnesota", "mississippi", "missouri", "montana",
+    "nebraska", "nevada", "new hampshire", "new jersey", "new mexico",
+    "new york", "north carolina", "north dakota", "ohio", "oklahoma",
+    "oregon", "pennsylvania", "rhode island", "south carolina", "south dakota",
+    "tennessee", "texas", "utah", "vermont", "virginia", "washington",
+    "west virginia", "wisconsin", "wyoming"]
 
     data_combined = combine_param_data(all_states, data_gdp, data_illiterate, data_population, data_unemployment)
 
-    data_combined.to_excel('ser594_23fc_project\data_processed\data.xlsx', sheet_name='Sheet1', index=False)
+    data_combined.to_excel('data_processed\data.xlsx', sheet_name='Sheet1', index=False)
 
-    shootings_filepath = "ser594_23fc_project\data_original\statistic_id811541_mass-shootings-in-the-us-1982-2023-by-state.xlsx"
-    gun_law_strength_file = "ser594_23fc_project\data_original\statistic_id1358692_leading-states-for-gun-law-strength-in-the-us-2023.xlsx"
-    executions_filepath = "ser594_23fc_project\data_original\statistic_id271100_number-of-executions-in-the-united-states-2015-2023.xlsx"
-    murders_filepath ="ser594_23fc_project\data_original\statistic_id301603_murders-involving-firearms-in-the-us-2021-by-state.xlsx"
+    shootings_filepath = "data_original\statistic_id811541_mass-shootings-in-the-us-1982-2023-by-state.xlsx"
+    gun_law_strength_file = "data_original\statistic_id1358692_leading-states-for-gun-law-strength-in-the-us-2023.xlsx"
+    executions_filepath = "data_original\statistic_id271100_number-of-executions-in-the-united-states-2015-2023.xlsx"
+    murders_filepath ="data_original\statistic_id301603_murders-involving-firearms-in-the-us-2021-by-state.xlsx"
 
     data_shootings = statista_file(shootings_filepath)
     data_gun_law = statista_file(gun_law_strength_file)
@@ -145,4 +156,4 @@ def data_processing():
     data_murders = statista_file(murders_filepath)
 
     crime_data_combined = combine_crime_data(all_states, data_execution, data_shootings, data_gun_law, data_murders)
-    crime_data_combined.to_excel('ser594_23fc_project\data_processed\crime_data.xlsx', sheet_name='Sheet1', index=False)
+    crime_data_combined.to_excel('data_processed\crime_data.xlsx', sheet_name='Sheet1', index=False)
