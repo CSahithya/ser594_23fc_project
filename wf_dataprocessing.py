@@ -119,10 +119,10 @@ def combine_crime_data(states, data_execution, data_shootings, data_gun_law, dat
     return df
 
 def data_processing():
-    gdp_filepath = "data_original\statistic_id248063_us-real-per-capita-gdp-2022-by-state.xlsx"
-    population_filepath = "data_original\statistic_id183497_population-in-the-states-of-the-us-2022.xlsx"
-    literacy_filepath = r"data_original\\us.-literacy-rates-by-state-[updated-june-2023].csv"
-    unemployment_filepath = "data_original\statistic_id223675_us-annual-unemployment-rate-2022-by-state.xlsx"
+    gdp_filepath = "ser594_23fc_project\data_original\statistic_id248063_us-real-per-capita-gdp-2022-by-state.xlsx"
+    population_filepath = "ser594_23fc_project\data_original\statistic_id183497_population-in-the-states-of-the-us-2022.xlsx"
+    literacy_filepath = r"ser594_23fc_project\data_original\\us.-literacy-rates-by-state-[updated-june-2023].csv"
+    unemployment_filepath = "ser594_23fc_project\data_original\statistic_id223675_us-annual-unemployment-rate-2022-by-state.xlsx"
     data_gdp = statista_file(gdp_filepath, 1)
     data_population = statista_file(population_filepath, 1)
     data_unemployment = statista_file(unemployment_filepath, 1)
@@ -132,12 +132,12 @@ def data_processing():
 
     data_combined = combine_param_data(all_states, data_gdp, data_illiterate, data_population, data_unemployment)
 
-    data_combined.to_excel('data_processed\data.xlsx', sheet_name='Sheet1', index=False)
+    data_combined.to_excel('ser594_23fc_project\data_processed\data.xlsx', sheet_name='Sheet1', index=False)
 
-    shootings_filepath = "data_original\statistic_id811541_mass-shootings-in-the-us-1982-2023-by-state.xlsx"
-    gun_law_strength_file = "data_original\statistic_id1358692_leading-states-for-gun-law-strength-in-the-us-2023.xlsx"
-    executions_filepath = "data_original\statistic_id271100_number-of-executions-in-the-united-states-2015-2023.xlsx"
-    murders_filepath ="data_original\statistic_id301603_murders-involving-firearms-in-the-us-2021-by-state.xlsx"
+    shootings_filepath = "ser594_23fc_project\data_original\statistic_id811541_mass-shootings-in-the-us-1982-2023-by-state.xlsx"
+    gun_law_strength_file = "ser594_23fc_project\data_original\statistic_id1358692_leading-states-for-gun-law-strength-in-the-us-2023.xlsx"
+    executions_filepath = "ser594_23fc_project\data_original\statistic_id271100_number-of-executions-in-the-united-states-2015-2023.xlsx"
+    murders_filepath ="ser594_23fc_project\data_original\statistic_id301603_murders-involving-firearms-in-the-us-2021-by-state.xlsx"
 
     data_shootings = statista_file(shootings_filepath)
     data_gun_law = statista_file(gun_law_strength_file)
@@ -145,4 +145,4 @@ def data_processing():
     data_murders = statista_file(murders_filepath)
 
     crime_data_combined = combine_crime_data(all_states, data_execution, data_shootings, data_gun_law, data_murders)
-    crime_data_combined.to_excel('data_processed\crime_data.xlsx', sheet_name='Sheet1', index=False)
+    crime_data_combined.to_excel('ser594_23fc_project\data_processed\crime_data.xlsx', sheet_name='Sheet1', index=False)
