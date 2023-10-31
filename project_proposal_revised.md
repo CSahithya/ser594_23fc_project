@@ -21,7 +21,7 @@ The project's intellectual strength resides in its capacity to produce informati
 
 **Data Sourcing:**
 To conduct this research, I will collect crime data, socioeconomic data, such as income levels, education levels, and unemployment rates, from authoritative sources like data.gov or statista.com or other official sites. The datasets used are:
-1. 1. [Population by State in the US](https://www.statista.com/statistics/183497/population-in-the-federal-states-of-the-us/)
+1. [Population by State in the US](https://www.statista.com/statistics/183497/population-in-the-federal-states-of-the-us/)
 2. [Annual Unemployment rate by state in US](https://www.statista.com/statistics/223675/state-unemployment-rate-in-the-us/)
 3. [US real per capita GDP by state in US](https://www.statista.com/statistics/248063/per-capita-us-real-gross-domestic-product-gdp-by-state/)
 4. [Number of Executions in US by state](https://www.statista.com/statistics/271100/number-of-executions-in-the-us/)
