@@ -1,19 +1,34 @@
 #### SER594: Project Proposal
-#### Criminal Activity Prediction(title)
+#### Criminal Activity Prediction (title)
 #### Sahithya Cherukuri (author)
-#### 09/11/2023 (date)
+#### 10/30/2023 (date)
 
 
 **Keywords:** Crime Prediction, Socioeconomic Factors, Crime Patterns
 
 **Description:** 
-This project aims to develop a predictive model for identifying areas with a high likelihood of criminal activity in the United States, using a combination of historical crime data and socioeconomic factors. This project aims to answer questions: How is education/literacy affecting crime rates? How is well-being influencing crimes?
+This project aims to develop a predictive model for identifying *factors that affect* criminal activity in the United States, using a combination of historical crime data and socioeconomic factors. *Specifically, predict how a change in socioeconomic factor can effect the crime rate of a state.* This project aims to answer questions: How is education/literacy affecting crime rates? *To achieve less crime rates which factor should be the focus of the state?*
+
+**Research Objectives** </br>
+_Research Objective 1_: To describe the trends within the values of socio-economic factors and crime rates. </br>
+_Research Objective 2_: To predict the value of the crime for a change in the socio-economic factor for a state.</br>
+_Research Objective 3_: To defend the model for performing the predictions in _RO2_.</br>
+_Research Objective 4_: To evaluate casual relationships implied by the _RO2_ model.</br>
+_Research Objective 5_: To analyze if the model can be used to predict values for a smaller area as opposed to a state. 
 
 **Intellectual Merit:**
-The project's intellectual strength resides in its capacity to produce information on the elements that contribute to criminal behavior and the model's capacity for accurate prediction. I want to find hidden patterns and linkages that support efforts to avoid crime by fusing historical crime data with socioeconomic and geographic characteristics. Reducing crime rates and enhancing community safety and well-being can both benefit from the capacity to identify high-crime locations correctly.
+The project's intellectual strength resides in its capacity to produce information on the elements that contribute to criminal behavior and the model's capacity for accurate prediction. I want to find hidden patterns and linkages that support efforts to avoid crime by fusing historical crime data with socioeconomic factors. Reducing crime rates and enhancing community safety and well-being can both benefit from the capacity *to identify what factors effect the crime in what proportion*. I want 
 
 **Data Sourcing:**
-To conduct this research, I plan to obtain relevant data from various sources, including the "Crime Data from 2020 to Present" and other datasets provided by Data.gov. Additionally, I will collect socioeconomic data, such as income levels, education levels, and unemployment rates, from authoritative sources like data.gov or other official sites.
+To conduct this research, I will collect crime data, socioeconomic data, such as income levels, education levels, and unemployment rates, from authoritative sources like data.gov or statista.com or other official sites. The datasets used are:
+1. 1. [Population by State in the US](https://www.statista.com/statistics/183497/population-in-the-federal-states-of-the-us/)
+2. [Annual Unemployment rate by state in US](https://www.statista.com/statistics/223675/state-unemployment-rate-in-the-us/)
+3. [US real per capita GDP by state in US](https://www.statista.com/statistics/248063/per-capita-us-real-gross-domestic-product-gdp-by-state/)
+4. [Number of Executions in US by state](https://www.statista.com/statistics/271100/number-of-executions-in-the-us/)
+5. [Number of murders involving firearms by state in US](https://www.statista.com/statistics/301603/murder-involving-firearms-us/)
+6. [Mass shootings in US by state](https://www.statista.com/statistics/811541/mass-shootings-in-the-us-by-state/)
+7. [Gun Law strength in US by state](https://www.statista.com/statistics/1358692/leading-states-gun-law-strength-us/)
+8. [US literacy rates by state](https://worldpopulationreview.com/state-rankings/us-literacy-rates-by-state)
 
 **Background Knowledge:** 
 This dataset and the project are straightforward. We don't require any specific background knowledge. Although the following identified resources are informative:
