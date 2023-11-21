@@ -1,0 +1,21 @@
+Evaluation Metrics for model - RandomForestRegressor:
+  Mean Squared Error: 0.0031358685659591042
+  Mean Absolute Error: 0.043734121199531545
+  R-squared: 0.7244078102211451
+
+Alternative Models
+Evaluation Metrics for model - Linear Regression:
+  Mean Squared Error: 0.003640691645072603
+  Mean Absolute Error: 0.04714495134918661
+  R-squared: 0.6800420165351326
+
+Evaluation Metrics for model - Gradient Boosting Regressor:
+  Mean Squared Error: 0.0032033847153429803
+  Mean Absolute Error: 0.044831291664981995
+  R-squared: 0.7184742313536749
+
+Evaluation Metrics for model - Support Vector Regressor:
+  Mean Squared Error: 0.008053614310713641
+  Mean Absolute Error: 0.06985061730366844
+  R-squared: 0.29221740106793714
+
