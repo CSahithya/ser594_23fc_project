@@ -36,6 +36,7 @@ def data_transform():
     crime_file = "data_processed\crime_data.xlsx"
     result_file = 'data_processed\dataset.xlsx'
 
+    # data = add_data_points(data_file,crime_file)
     result_data = add_data_points(data_file,crime_file)
     data = generate_target_value(result_data)
     data.to_excel(result_file, sheet_name="Sheet1", index=False)
@@ -43,6 +44,7 @@ def data_transform():
 
 def generate_target_value(data):
     scaler = MinMaxScaler()
+    # data[['executions', 'gun_law']] = scaler.fit_transform(data[['executions', 'gun_law']])
     data[['murders', 'executions', 'gun_law']] = scaler.fit_transform(data[['murders', 'executions', 'gun_law']])
-    data['crime_rate_factor'] = data[['murders', 'executions', 'gun_law']].mean(axis=1)
+    # data['crime_rate_factor'] = data[['murders', 'executions', 'gun_law']].mean(axis=1)
     return data

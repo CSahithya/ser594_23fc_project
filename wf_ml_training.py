@@ -13,4 +13,6 @@ def train_data(X, y):
     model_path = os.path.join('models', 'RandomForestRegressor.pkl')
     with open(model_path, 'wb') as file:
         pickle.dump(rfr_model, file)
+
+    return rfr_model
     # print(f'RandomForestRegressor model saved at {model_path}')
