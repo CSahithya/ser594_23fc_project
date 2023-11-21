@@ -72,6 +72,18 @@ When both illiteracy and unemployment rates were varied together, the highest cr
 **Prediction Trend Seen:**
 In scenarios where illiteracy and unemployment rates were varied inversely (one increasing while the other decreasing), the lowest crime_rate was predicted for higher illiteracy and lower unemployment. This indicates that the model might be weighing the unemployment rate more heavily than the illiteracy rate in predicting crime rates. The inverse relationship does not follow a simple additive pattern, suggesting complex interdependencies between these socio-economic factors.
 
+Sample output from the file
+Prediction for the first record:(lower illiteracy) [0.04038462] </br>
+Prediction for the second record:(higher illiteracy) [0.03346154]</br>
+
+Prediction for the first record:(lower unemployment) [0.04038462]</br>
+Prediction for the second record:(higher unemployment) [0.05634615]</br>
+
+Prediction for the first record:(lower illiteracy and lower unemployment) [0.04461538]</br>
+Prediction for the second record:(lower illiteracy and higher unemployment) [0.05865385]</br>
+Prediction for the first record:(higher illiteracy and lower unemployment) [0.03346154]</br>
+Prediction for the second record:(higher illiteracy and higher unemployment) [0.05]</br>
+
 
 Author's note:
 In the analysis, I have employed the term "crime_rate" instead of "murders" to enhance the contextual relevance of the study. This adjustment aims to encompass a more comprehensive understanding of crime in the region.
