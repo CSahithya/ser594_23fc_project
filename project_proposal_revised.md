@@ -17,7 +17,7 @@ _Research Objective 4_: To evaluate casual relationships implied by the _RO2_ mo
 _Research Objective 5_: To analyze if the model can be used to predict values for a smaller area as opposed to a state. 
 
 **Intellectual Merit:**
-The project's intellectual strength resides in its capacity to produce information on the elements that contribute to criminal behavior and the model's capacity for accurate prediction. I want to find hidden patterns and linkages that support efforts to avoid crime by fusing historical crime data with socioeconomic factors. Reducing crime rates and enhancing community safety and well-being can both benefit from the capacity *to identify what factors effect the crime in what proportion*. I want 
+The project's intellectual strength resides in its capacity to produce information on the elements that contribute to criminal behavior and the model's capacity for accurate prediction. I want to find hidden patterns and linkages that support efforts to avoid crime by fusing historical crime data with socioeconomic factors. Reducing crime rates and enhancing community safety and well-being can both benefit from the capacity *to identify what factors effect the crime in what proportion*.
 
 **Data Sourcing:**
 To conduct this research, I will collect crime data, socioeconomic data, such as income levels, education levels, and unemployment rates, from authoritative sources like data.gov or statista.com or other official sites. The datasets used are:
